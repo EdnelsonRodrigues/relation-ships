@@ -66,4 +66,49 @@ class OneToManyController extends Controller
             echo "<hr>";
         }
     }
+
+    //metodo para inserir dados em estados com um pais especifico
+    public function oneToManyInsert() {
+
+        //inserindo estados em um determinado pais
+        $dados = [
+            'nome' => 'Bahia',
+            'sigla' => 'BA',
+        ];
+
+        //vincular o pais de foi recuperado de id 1
+        $pais = Pais::find(3);
+
+        $inserirEstados = $pais->estados()->create($dados);
+        var_dump($inserirEstados);
+    }
+
+    //metodo para inserir dados em estados com um pais especifico segunda opcao
+    public function oneToManyInsertTwo() {
+
+        //inserindo estados em um determinado pais
+        $dados = [
+            'nome' => 'Bahia',
+            'sigla' => 'BA',
+            'pais_id' => '3',
+        ];
+
+        $inserirEstados = Estado::create($dados);
+        var_dump($inserirEstados->nome);
+    }
+
+    public function hasManyThrough() {
+        $pais = Pais::find(3);
+        echo "<strong>$pais->nome:</strong> <br>";
+
+        $cidades = $pais->cidades;
+
+        //loop para exibir as cidades pulando o estado que elas pertencem
+        foreach ($cidades as $cidade) {
+            echo "$cidade->nome <br>";
+        }
+
+        //retorna a quantidade de cidades do pais selecionado de id 3
+        echo "<strong>Total de cidades: </strong> {$cidades->count()}";
+    }
 }

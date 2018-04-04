@@ -20,4 +20,9 @@ class Pais extends Model
         return $this->hasMany(Estado::class);//funcao hasOne retorna o relacionamento um para Muitos
         //return $this->hasMany(Estado::class, 'pais_id', 'id');
     }
+
+    //metodo no plural para pegas as cidades pulando os estados
+    public function cidades() {
+        return $this->hasManyThrough(Cidade::class, Estado::class);
+    }
 }
