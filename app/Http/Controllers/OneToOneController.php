@@ -38,14 +38,14 @@ class OneToOneController extends Controller
     public function oneToOneInsert() {
         $dados = [
             'nome' => 'Dinamarca',
-            'latitude' => '22',
-            'longitude' => '22',
+            'latitude' => '223',
+            'longitude' => '322',
         ];
 
         //inserindo os dados do Pais no array acima
-        //$pais = Pais::create($dados);
+        $pais = Pais::create($dados);
 
-        $pais = Pais::where('nome','Brasil')->get()->first();
+        $pais = Pais::where('nome','Dinamarca')->get()->first();
 
         //inserindo os dados da Localização recuperando o id do Pais relacionado
         /*$localizacao = new Localizacao;
