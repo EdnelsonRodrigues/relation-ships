@@ -24,6 +24,13 @@ $this->get('one-to-many-insert-two', 'OneToManyController@oneToManyInsertTwo');
 
 $this->get('has-many-through', 'OneToManyController@hasManyThrough');
 
+/*
+* Many to Many
+*/
+
+$this->get('many-to-many', 'ManyToManyController@manyToMany');
+$this->get('many-to-many-inverso', 'ManyToManyController@manyToManyInverso');
+$this->get('many-to-many-insert', 'ManyToManyController@manyToManyInsert');
 
 
 
