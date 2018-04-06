@@ -32,6 +32,12 @@ $this->get('many-to-many', 'ManyToManyController@manyToMany');
 $this->get('many-to-many-inverso', 'ManyToManyController@manyToManyInverso');
 $this->get('many-to-many-insert', 'ManyToManyController@manyToManyInsert');
 
+/*
+* Relacionamento Polimórfico
+*/
+
+$this->get('polimorficos', 'PolimorficoController@polimorfico');
+$this->get('polimorficos-insert', 'PolimorficoController@polimorficoInsert');
 
 
 Route::get('/', function () {

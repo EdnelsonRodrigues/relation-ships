@@ -25,4 +25,10 @@ class Pais extends Model
     public function cidades() {
         return $this->hasManyThrough(Cidade::class, Estado::class);
     }
+
+    //metodo para relacionamento polimorficos
+    public function comentarios() {
+        return $this->morphMany(Comentario::class, 'coment');//passar a model que tem os comentarios em si, que faz o relacionamento
+        //coment e o metodo la na model comentarios onde vai pegas a cidade e fazer o polimorfismo relacionando-a
+    }
 }
